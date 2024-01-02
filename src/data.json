@@ -1,0 +1,21 @@
+[
+  {
+    "id":1,
+    "name": "John",
+    "accountSite":"Value1",
+    "billingState":"Test",
+    "phone":"76889687",
+    "type":"bascdhg",
+    "alias":"J"
+  },
+  {
+    "id":2,
+    "name": "Robert",
+    "accountSite":"Value2",
+    "billingState":"Test3",
+    "phone":"53564456",
+    "type":"bntedfg",
+    "alias":"R"
+  }
+  
+]
