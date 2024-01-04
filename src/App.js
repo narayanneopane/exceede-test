@@ -5,14 +5,15 @@ import Table from './Table';
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [account, setAccount] = useState();
-  const [newData, setNewData] = useState({
+  const initialNewData = {
     name: "",
     phone: "",
     industry:"",
     fax:"",
     accountNumber:"",
     website:""
-    });
+    };
+  const [newData, setNewData] = useState(initialNewData);
   const [dataPresent, setDataPresent] = useState(false);
   
   const addAccount = (e) =>{
@@ -38,6 +39,7 @@ function App() {
     })
       .then((response) => response.json())
       //.then((json) => console.log(json));
+      .finally(setNewData(initialNewData));
       document.getElementById('name').value='';
       document.getElementById('industry').value='';
       document.getElementById('accountNo').value='';
