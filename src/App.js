@@ -6,13 +6,13 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [account, setAccount] = useState();
   const [newData, setNewData] = useState({
-     name: "",
-     phone: "",
-     industry:"",
-     fax:"",
-     accountNumber:"",
-     website:""
-     });
+    name: "",
+    phone: "",
+    industry:"",
+    fax:"",
+    accountNumber:"",
+    website:""
+    });
   const [dataPresent, setDataPresent] = useState(false);
   
   const addAccount = (e) =>{
@@ -24,25 +24,36 @@ function App() {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
-    setNewData({
-      name: "",
-      phone: "",
-      industry:"",
-      fax:"",
-      accountNumber:"",
-      website:""
-      });
+      //.then((json) => console.log(json));
     setShowModal(false);
   }
+
+  const addAndNew = () =>{
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      //.then((json) => console.log(json));
+      document.getElementById('name').value='';
+      document.getElementById('industry').value='';
+      document.getElementById('accountNo').value='';
+      document.getElementById('phone').value='';
+      document.getElementById('fax').value='';
+      document.getElementById('website').value='';
+  }
+
 
   const getAccount = async()=>{ 
       fetch("https://jsonplaceholder.typicode.com/users")
         .then(response => response.json())
         .then(json => setAccount(json))
-        .finally(() => {
-          console.log("fetched account data");
-    }, [])
+        //.finally(() => {
+        //  console.log("fetched account data");
+        //}, [])
 
   }
 
@@ -143,6 +154,7 @@ if(!dataPresent){
               
               <div className='button-group'>
               <button className='btn-cancel' onClick={() => setShowModal(false)} >Cancel</button>
+              <button className='btn-new' onClick={() => addAndNew()} >Save & New</button>
               <button className='btn-submit' type='submit' >Save</button>
               </div>             
               

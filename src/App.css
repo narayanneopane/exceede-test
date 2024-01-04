@@ -79,7 +79,7 @@ h3 {
   padding-left: 10px;
 }
 
-.btn-cancel{
+.btn-cancel,.btn-new{
   color: #90b3ce;
   background-color: white;
   border: solid 1px #9e9e9e;
